@@ -91,6 +91,6 @@ public class Drg_Base : ISlotResolver
         var spell = GetSpells().GetSpell();
         if (spell == null)
             return;
-            slot.Add(spell);
+        slot.Add(spell);
     }
 }
