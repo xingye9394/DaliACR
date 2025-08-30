@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Media;
 using System.Numerics;
 using System.Threading.Tasks;
+using FFXIVClientStructs.FFXIV.Client.Game.Character;
 
 namespace Dali.Drg
 {
@@ -46,7 +47,11 @@ namespace Dali.Drg
 
         public async Task OnPreCombat()//脱战时
         {
-            
+            /*if (DrgIRotationEntry.QT.GetQt("贯穿尖"))
+            {
+                uint a = Core.Me.GetCurrTarget().Customize[23];
+                LogHelper.Print("ta的胸围 ："+ a);
+            }*/
             await Task.CompletedTask;
         }
         
@@ -97,11 +102,11 @@ namespace Dali.Drg
             }
             else if(上个连击 == Data.DrgSkill.sakuraAuto)
             {
-                MeleePosHelper.Draw(MeleePosHelper.Pos.Behind, gcd剩余时间/25);
+                MeleePosHelper.Draw(MeleePosHelper.Pos.Behind, Math.Abs(gcd剩余时间/25-100));
             }
             else if (上个连击 == Data.DrgSkill.zcAuto)
             {
-                MeleePosHelper.Draw(MeleePosHelper.Pos.Flank, gcd剩余时间/25);
+                MeleePosHelper.Draw(MeleePosHelper.Pos.Flank, Math.Abs(gcd剩余时间/25-100));
 
             }
             else

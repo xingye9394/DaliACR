@@ -5,10 +5,13 @@ using AEAssist.CombatRoutine.Trigger;
 using AEAssist.Extension;
 using AEAssist.Helper;
 using AEAssist.MemoryApi;
+using Dalamud.Game.ClientState.Objects.Types;
+using Dali.Drg.Data;
+using FFXIVClientStructs.FFXIV.Client.Game.Character;
 
 namespace Dali.Drg.GCD;
 
-public class Drg_Base : ISlotResolver
+public class DrgBase : ISlotResolver
 {
     private static uint 上个连击 => Core.Resolve<MemApiSpell>().GetLastComboSpellId();
 
@@ -79,7 +82,7 @@ public class Drg_Base : ISlotResolver
     private uint GetSpells()
     {
         uint lw = Longwei();
-        if (lw != Data.DrgSkill.精准刺) // 默认返回精准刺时说明不处于龙尾流程
+        if (lw != DrgSkill.精准刺) // 默认返回精准刺时说明不处于龙尾流程
             return lw;
         if (!Core.Me.GetCurrTarget().HasMyAuraWithTimeleft(Data.DrgBuffs.SakuraDot, 5000))//目标buff不大于5秒
             return Sakura();

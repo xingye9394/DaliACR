@@ -5,7 +5,7 @@ namespace Dali.Drg.Data
 	public static class DrgSkill
 	{
         public const uint
-
+            冲刺 = 3,
             精准刺 = 75,
             贯穿尖 = 90,
             龙眼雷电 = 16479,

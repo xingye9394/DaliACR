@@ -46,12 +46,13 @@ public class DrgIRotationEntry : IRotationEntry
     }
     public List<SlotResolverData> SlotResolvers = new()
     {
-            new(new Drg_Base(), SlotMode.Gcd),
+            new(new DrgBase(), SlotMode.Gcd),
             new(new Drg_AOE(), SlotMode.Gcd),
             new(new Drg_贯穿尖(), SlotMode.Gcd),
             //GCD队列
 
             new(new Drg_爆发_Off(), SlotMode.OffGcd),
+            new(new DrgBaseOff(), SlotMode.OffGcd),
             //OffGCD队列
     };
         public static JobViewWindow QT { get; private set; }  // 声明当前要使用的UI的实例 示例里使用QT
@@ -81,9 +82,19 @@ public class DrgIRotationEntry : IRotationEntry
         QT.AddQt(QTKey.GCD, true);
         QT.AddQt(QTKey.AOE, true);
         QT.AddQt(QTKey.爆发, true, "猛枪&连祷");
+        QT.AddQt(QTKey.能力技, true);
+        QT.AddQt(QTKey.贯穿尖, false);
+        QT.AddQt(QTKey.武神枪, true);
+        QT.AddQt(QTKey.高跳, true);
+        QT.AddQt(QTKey.龙剑, true);
+        QT.AddQt(QTKey.龙炎冲, true);
+        QT.AddQt(QTKey.龙炎升, true);
+        QT.AddQt(QTKey.坠星冲, true);
+        QT.AddQt(QTKey.渡星冲, true);
+        QT.AddQt(QTKey.幻象冲, true);
         QT.AddQt(QTKey.猛枪, true);
         QT.AddQt(QTKey.连祷, true);
-        QT.AddQt(QTKey.贯穿尖, false);
+        QT.AddQt(QTKey.红龙炮, true);
 
 
 
